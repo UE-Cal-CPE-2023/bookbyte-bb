@@ -1,0 +1,12 @@
+services:
+  budibase:
+    restart: unless-stopped
+    image: budibase/budibase:2.9.36
+    ports:
+      - 8088:80
+    extra_hosts:
+      - host.docker.internal:172.21.0.1
+    env_file:
+      - .env.budibase
+    volumes:
+      - ./data:/data
